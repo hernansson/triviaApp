@@ -6,7 +6,18 @@ import estilos from "../styles/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 export default function Congratz() {
-  const { setAsserts, asserts, userName } = useContext(TriviaContext);
+  const { setAsserts, asserts, userName, setUserName } =
+    useContext(TriviaContext);
+  let leaderBoard = JSON.parse(localStorage.getItem("leaderboard"));
+  if (!userName) {
+    setUserName("Anonimo");
+  }
+  if (leaderBoard) {
+    leaderBoard.push({ userName, asserts });
+  } else {
+    leaderBoard = [{ userName, asserts }];
+  }
+  localStorage.setItem("leaderboard", JSON.stringify(leaderBoard));
   const classes = estilos();
   const handleClick = () => {
     setAsserts(0);

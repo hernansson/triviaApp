@@ -19,8 +19,8 @@
   width: 80%;
   background: black;
   text-align: center;
-  font-size: 30px;
-  padding: 20px;
+  font-size: 25px;
+  padding: 10px;
   border-radius: 10px;
   border: 1.5vmin solid;
   border-image: linear-gradient(
@@ -57,7 +57,7 @@
 .answer {
   width: 40%;
   padding: 10px;
-  margin: 10px 10px 20px 10px;
+  margin: 0px 10px 20px 10px;
   text-align: center;
   background: linear-gradient(#94499e, #732ce4);
   border: 1px solid white;

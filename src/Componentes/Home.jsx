@@ -27,8 +27,17 @@ export default function Home({ title, image }) {
         onChange={handleChange}
       />
       <Link to="/trivia">
-        <Button variant="contained" color="primary">
+        <Button variant="contained" style={{ width: "200px" }} color="primary">
           Start
+        </Button>
+      </Link>
+      <Link to="/leaderboard">
+        <Button
+          variant="contained"
+          style={{ width: "200px" }}
+          color="secondary"
+        >
+          Ranking
         </Button>
       </Link>
     </div>

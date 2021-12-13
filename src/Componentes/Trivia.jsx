@@ -24,6 +24,12 @@ export default function Trivia({ data }) {
     }, duration);
   };
   const handleClick = (selectedValue) => {
+    const nextQuestion = () => {
+      setClicked(false);
+      setQuestionNumber((prev) => prev + 1);
+      setSelectedAnswer(null);
+      setShowTimer(true);
+    };
     setClicked(true);
     setSelectedAnswer(selectedValue);
     setClassName({ true: "answer correct", false: "answer wrong" });
@@ -33,30 +39,22 @@ export default function Trivia({ data }) {
         if (selectedValue.correct) {
           setParcialResult("CORRECTO!");
           delay(3000, () => {
-            setClicked(false);
-            setQuestionNumber((prev) => prev + 1);
-            setSelectedAnswer(null);
+            nextQuestion();
             setAsserts(asserts + 1);
-            setShowTimer(true);
           });
         } else {
           setParcialResult("INCORRECTO!");
           delay(3000, () => {
-            setClicked(false);
-            setQuestionNumber((prev) => prev + 1);
-            setSelectedAnswer(null);
-            setShowTimer(true);
+            nextQuestion();
           });
         }
         setShowTimer(false);
       });
     } else {
+      setSelectedAnswer("otherThanNull"); // disable Click
       setParcialResult("TIEMPO ACABADO :(!");
       delay(4000, () => {
-        setClicked(false);
-        setQuestionNumber((prev) => prev + 1);
-        setSelectedAnswer(null);
-        setShowTimer(true);
+        nextQuestion();
       });
       setShowTimer(false);
     }
@@ -86,8 +84,8 @@ export default function Trivia({ data }) {
             duration={
               data[questionNumber] ? data[questionNumber].lifetimeSeconds : 3
             }
-            size={120}
-            strokeWidth={10}
+            size={90}
+            strokeWidth={8}
             colors={[
               ["#00FF00", 0.33],
               ["#F7B801", 0.33],

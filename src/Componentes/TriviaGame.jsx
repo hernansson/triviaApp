@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./trivia.css";
 import Home from "./Home";
-import Settings from "./Settings";
+import LeaderBoard from "./LeaderBoard";
 import Trivia from "./Trivia";
 import Congratz from "./Congratz";
 import useFetch from "./customHooks/useFetch";
@@ -22,7 +22,7 @@ const TriviaGame = () => {
               path="/"
               element={<Home title={data.title} image={data.image} />}
             />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/leaderboard" element={<LeaderBoard />} />
             <Route path="/trivia" element={<Trivia data={data.questions} />} />
             <Route path="/congratz" element={<Congratz />} />
           </Routes>
