@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { TriviaContext } from "../context/triviaContext";
-import { congratzImg } from "./config";
+import { congratzImg } from "../Env/config";
 import estilos from "../styles/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
