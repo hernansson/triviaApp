@@ -15,7 +15,14 @@ export default function Congratz() {
       setUserName("Anonimo");
     }
     if (leaderBoard) {
-      leaderBoard.push({ userName, asserts });
+      const index = leaderBoard.findIndex((user) => user.userName === userName);
+      if (index === -1) {
+        leaderBoard.push({ userName, asserts });
+      } else {
+        if (leaderBoard[index].asserts < asserts) {
+          leaderBoard[index].asserts = asserts;
+        }
+      }
     } else {
       leaderBoard = [{ userName, asserts }];
     }
@@ -25,6 +32,7 @@ export default function Congratz() {
   const classes = estilos();
   const handleClick = () => {
     setAsserts(0);
+    setUserName(null);
   };
   return (
     <div className={classes.congratz}>
@@ -40,6 +48,11 @@ export default function Congratz() {
       <Link to="/trivia" className={classes.link}>
         <Button onClick={handleClick} variant="contained" color="primary">
           Jugar de nuevo ?
+        </Button>
+      </Link>
+      <Link to="/" className={classes.link}>
+        <Button onClick={handleClick} variant="contained" color="primary">
+          Volver al menu Principal ?
         </Button>
       </Link>
     </div>
