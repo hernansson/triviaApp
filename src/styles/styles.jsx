@@ -54,4 +54,7 @@ export default makeStyles((theme) => ({
   congratzImg: {
     height: "20vw",
   },
+  link: {
+    textDecoration: "none",
+  },
 }));

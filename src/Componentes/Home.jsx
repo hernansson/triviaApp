@@ -26,12 +26,12 @@ export default function Home({ title, image }) {
         }}
         onChange={handleChange}
       />
-      <Link to="/trivia">
+      <Link to="/trivia" className={classes.link}>
         <Button variant="contained" style={{ width: "200px" }} color="primary">
           Start
         </Button>
       </Link>
-      <Link to="/leaderboard">
+      <Link to="/leaderboard" className={classes.link}>
         <Button
           variant="contained"
           style={{ width: "200px" }}

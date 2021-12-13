@@ -6,8 +6,9 @@ import estilos from "../styles/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 export default function Congratz() {
-  const { setAsserts, asserts, userName, setUserName } =
+  const { setAsserts, asserts, userName, setUserName, setBarActive } =
     useContext(TriviaContext);
+  setBarActive(true);
   let leaderBoard = JSON.parse(localStorage.getItem("leaderboard"));
   if (!userName) {
     setUserName("Anonimo");
@@ -33,7 +34,7 @@ export default function Congratz() {
       <p
         className={classes.assertsText}
       >{`Acertaste ${asserts} preguntas :D`}</p>
-      <Link to="/trivia">
+      <Link to="/trivia" className={classes.link}>
         <Button onClick={handleClick} variant="contained" color="primary">
           Jugar de nuevo ?
         </Button>
