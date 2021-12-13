@@ -1,0 +1,134 @@
+.trivia {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media only screen and (min-width: 768px) {
+  .trivia {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+.question {
+  width: 80%;
+  background: black;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1.5vmin solid;
+  border-image: linear-gradient(
+      var(--angle),
+      rgb(115, 178, 236),
+      rgb(255, 255, 255),
+      rgb(92, 80, 200),
+      rgb(255, 255, 255)
+    )
+    1;
+  animation: 5s rotate linear infinite;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.answers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5%;
+}
+
+.answer {
+  width: 40%;
+  padding: 10px;
+  margin: 10px 10px 20px 10px;
+  text-align: center;
+  background: linear-gradient(#94499e, #732ce4);
+  border: 1px solid white;
+  border-radius: 15px;
+  font-weight: 300;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.answer:hover,
+.answer.active {
+  background: rgb(148, 10, 175);
+}
+
+.answer.correct {
+  animation: correct 2s ease forwards;
+}
+
+@keyframes correct {
+  0%,
+  22%,
+  42% {
+    background: #732ce4;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#94499e, #732ce4);
+  }
+  62%,
+  100% {
+    background: green;
+  }
+}
+
+.answer.wrong {
+  animation: wrong 2s ease forwards;
+}
+
+@keyframes wrong {
+  0%,
+  22%,
+  42% {
+    background: #732ce4;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#94499e, #732ce4);
+  }
+  62%,
+  100% {
+    background: crimson;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "leftArea middleArea .";
+}
+
+.middleArea {
+  grid-area: middleArea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftArea {
+  grid-area: leftArea;
+}
