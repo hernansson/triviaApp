@@ -6,7 +6,6 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     textAlign: "center",
     rowGap: "15px",
-    paddingTop: "8%",
   },
   home: {
     display: "flex",
