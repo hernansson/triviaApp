@@ -12,7 +12,7 @@ import { useContext } from "react";
 
 export default function LeaderBoard() {
   const { setBarActive } = useContext(TriviaContext);
-  const leaderBoard = JSON.parse(localStorage.getItem("leaderboard"));
+  const leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
   setBarActive(true);
   const slicedArr = leaderBoard
     ?.sort((a, b) => b.asserts - a.asserts)

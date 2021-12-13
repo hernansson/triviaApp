@@ -9,16 +9,19 @@ export default function Congratz() {
   const { setAsserts, asserts, userName, setUserName, setBarActive } =
     useContext(TriviaContext);
   setBarActive(true);
-  let leaderBoard = JSON.parse(localStorage.getItem("leaderboard"));
-  if (!userName) {
-    setUserName("Anonimo");
-  }
-  if (leaderBoard) {
-    leaderBoard.push({ userName, asserts });
-  } else {
-    leaderBoard = [{ userName, asserts }];
-  }
-  localStorage.setItem("leaderboard", JSON.stringify(leaderBoard));
+  const saveToLocalStorage = () => {
+    let leaderBoard = JSON.parse(localStorage.getItem("leaderBoard"));
+    if (!userName) {
+      setUserName("Anonimo");
+    }
+    if (leaderBoard) {
+      leaderBoard.push({ userName, asserts });
+    } else {
+      leaderBoard = [{ userName, asserts }];
+    }
+    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+  };
+  saveToLocalStorage();
   const classes = estilos();
   const handleClick = () => {
     setAsserts(0);

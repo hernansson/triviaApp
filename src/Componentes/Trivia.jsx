@@ -59,10 +59,10 @@ export default function Trivia({ data }) {
       setShowTimer(false);
     }
   };
+
   useEffect(() => {
     if (questionNumber === data.length) {
       navigate("../congratz");
-    } else {
     }
   }, [questionNumber]);
 
